@@ -392,3 +392,5 @@ shape = SubResource("RectangleShape2D_7vu7r")
 
 [node name="Animador" type="AnimationPlayer" parent="." unique_id=852074492]
 libraries/ = SubResource("AnimationLibrary_04pqm")
+
+[connection signal="animation_finished" from="Animador" to="." method="_on_animador_animation_finished"]
