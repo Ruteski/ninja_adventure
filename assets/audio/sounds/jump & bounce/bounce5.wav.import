@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bg838xg4of0xc"
+path="res://.godot/imported/bounce5.wav-e5cb7691b7307818258e93f49866fb28.sample"
+
+[deps]
+
+source_file="res://assets/audio/sounds/jump & bounce/bounce5.wav"
+dest_files=["res://.godot/imported/bounce5.wav-e5cb7691b7307818258e93f49866fb28.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

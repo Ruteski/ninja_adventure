@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bddgln8lxbn5q"
+path="res://.godot/imported/8 - end theme.ogg-e760405267a32c3da391eeec813b435b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/musics/8 - end theme.ogg"
+dest_files=["res://.godot/imported/8 - end theme.ogg-e760405267a32c3da391eeec813b435b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bri6h43u2q4dx"
+path="res://.godot/imported/40 - crypt.ogg-3057d96abac352d73fa0d6883c78d32b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/musics/40 - crypt.ogg"
+dest_files=["res://.godot/imported/40 - crypt.ogg-3057d96abac352d73fa0d6883c78d32b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bl8gjydo6ohxp"
+path="res://.godot/imported/27 - chill.ogg-0c2aa7e80f10332395893eec7c406706.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/musics/27 - chill.ogg"
+dest_files=["res://.godot/imported/27 - chill.ogg-0c2aa7e80f10332395893eec7c406706.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
