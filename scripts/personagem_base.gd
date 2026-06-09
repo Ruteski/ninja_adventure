@@ -5,6 +5,7 @@ class_name PersonagemBase extends CharacterBody2D
 var _prefixo_animacao: String = "_baixo"
 var _pode_atacar: bool = true
 var _atacando: bool = false
+var _ataque_selecionado: String = ""
 
 @export_category("Objects")
 @export var _animador: AnimationPlayer
@@ -37,6 +38,17 @@ func _physics_process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ataque") && _pode_atacar: # is_action_just_pressed -> le a acao apenas uma unica vez
 		set_physics_process(false) # desabilita atacar andando
+		_ataque_selecionado = "ataque" + _prefixo_animacao
+		_pode_atacar = false
+		_atacando = true
+	elif Input.is_action_just_pressed("ataque_especial_1") and _pode_atacar:
+		set_physics_process(false)
+		_ataque_selecionado = "ataque_especial_1"
+		_pode_atacar = false
+		_atacando = true
+	elif Input.is_action_just_pressed("ataque_especial_2") and _pode_atacar:
+		set_physics_process(false)
+		_ataque_selecionado = "ataque_especial_2"
 		_pode_atacar = false
 		_atacando = true
 		
@@ -45,7 +57,7 @@ func _physics_process(_delta: float) -> void:
 	
 func _animar() -> void:
 	if _atacando:
-		_animador.play("ataque" + _prefixo_animacao)
+		_animador.play(_ataque_selecionado)
 	elif velocity == Vector2.ZERO:
 		_animador.play("parado" + _prefixo_animacao)
 	elif velocity != Vector2.ZERO:
