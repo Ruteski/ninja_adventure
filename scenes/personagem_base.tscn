@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://datx6aqm5jwlc"]
 
+[ext_resource type="Script" uid="uid://d3ix3mpawu7ll" path="res://scripts/personagem_base.gd" id="1_7vu7r"]
 [ext_resource type="Texture2D" uid="uid://dx8enyvv1nbfl" path="res://assets/actors/character/eggboy/spritesheet.png" id="1_g8y8w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vu7r"]
@@ -376,7 +377,9 @@ _data = {
 &"pulo_esquerda": SubResource("Animation_vfxan")
 }
 
-[node name="PersonagemBase" type="CharacterBody2D" unique_id=432514955]
+[node name="PersonagemBase" type="CharacterBody2D" unique_id=432514955 node_paths=PackedStringArray("_animador")]
+script = ExtResource("1_7vu7r")
+_animador = NodePath("Animador")
 
 [node name="Textura" type="Sprite2D" parent="." unique_id=1235784597]
 texture = ExtResource("1_g8y8w")
