@@ -1,16 +1,34 @@
 class_name PersonagemBase extends CharacterBody2D
 
-@export var speed: float = 64.0
+enum Personagens {
+	egg_boy = 0,
+	hunter = 1,
+	mask_racoon = 2,
+	monkey_boxer_blue = 3,
+	robot_camouflage = 4
+}
 
 var _prefixo_animacao: String = "_baixo"
 var _pode_atacar: bool = true
 var _atacando: bool = false
 var _ataque_selecionado: String = ""
 
-@export_category("Objects")
+@export_category("Objetos")
 @export var _animador: AnimationPlayer
+@export var _textura: Sprite2D
+
+@export_category("Variaveis")
+@export var speed: float = 64.0
+@export var _personagem_selecionado: Personagens
+@export var _codigo_personagem: Array[String]
 
 
+func _ready() -> void:
+	_textura.texture = load(
+		"res://assets/actors/characters/" + _codigo_personagem[_personagem_selecionado] + "/spritesheet.png"
+	)
+	
+	
 func _physics_process(_delta: float) -> void:
 	# get_vector ja normaliza a direcao diracao nas diagonais
 	var direcao: Vector2 = Input.get_vector(
