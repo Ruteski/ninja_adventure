@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dx8enyvv1nbfl" path="res://assets/actors/character/eggboy/spritesheet.png" id="1_g8y8w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vu7r"]
+size = Vector2(12, 4)
 
 [sub_resource type="Animation" id="Animation_eslr6"]
 length = 0.001
@@ -381,16 +382,17 @@ _data = {
 script = ExtResource("1_7vu7r")
 _animador = NodePath("Animador")
 _textura = NodePath("Textura")
-_personagem_selecionado = 4
+_personagem_selecionado = 2
 _codigo_personagem = Array[String](["egg_boy", "hunter", "mask_racoon", "monkey_boser_blue", "robot_camouflage"])
 
 [node name="Textura" type="Sprite2D" parent="." unique_id=1235784597]
+position = Vector2(0, -3)
 texture = ExtResource("1_g8y8w")
 hframes = 4
 vframes = 7
 
 [node name="Colisor" type="CollisionShape2D" parent="." unique_id=322590613]
-visible = false
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_7vu7r")
 
 [node name="Animador" type="AnimationPlayer" parent="." unique_id=852074492]
