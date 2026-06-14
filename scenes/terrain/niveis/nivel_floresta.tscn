@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://bo6iplbr06wnc"]
 
+[ext_resource type="PackedScene" uid="uid://c1va8dq48gyxg" path="res://scenes/terrain/niveis/portal.tscn" id="1_pluve"]
+[ext_resource type="PackedScene" uid="uid://datx6aqm5jwlc" path="res://scenes/personagem_base.tscn" id="2_qlyjf"]
+
 [node name="NivelFloresta" type="Node2D" unique_id=284650321]
+
+[node name="YSort" type="Node2D" parent="." unique_id=1556957538]
+y_sort_enabled = true
+
+[node name="PortalVila" parent="YSort" unique_id=1318200044 instance=ExtResource("1_pluve")]
+_cena_alvo = "res://scenes/terrain/niveis/nivel_vila.tscn"
+_posicao_alvo = Vector2(128, -37)
+
+[node name="PersonagemBase" parent="YSort" unique_id=432514955 instance=ExtResource("2_qlyjf")]
+position = Vector2(101, 60)
+_personagem_selecionado = 0

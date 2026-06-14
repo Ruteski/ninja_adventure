@@ -14,6 +14,10 @@ config/name="NinjaAdventure"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://bpft1y6y54587"
 
+[autoload]
+
+gerenciador_portais="*uid://bgsi03v47x6nt"
+
 [display]
 
 window/size/viewport_width=320

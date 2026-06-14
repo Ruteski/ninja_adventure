@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c1va8dq48gyxg"]
+
+[ext_resource type="Script" uid="uid://c681bhykkonst" path="res://scripts/niveis/portal.gd" id="1_ma8m2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ynie"]
+size = Vector2(30, 9)
+
+[node name="Portal" type="Area2D" unique_id=1318200044]
+script = ExtResource("1_ma8m2")
+_cena_alvo = "res://scenes/terrain/niveis/nivel_floresta.tscn"
+
+[node name="Colisor" type="CollisionShape2D" parent="." unique_id=1648532867]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_3ynie")
+
+[node name="Contorno" type="ColorRect" parent="." unique_id=266714928]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -5.0
+offset_right = 15.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Mascara" type="ColorRect" parent="." unique_id=1670236572]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -4.0
+offset_right = 14.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.10980392, 0.2901961, 0.6)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

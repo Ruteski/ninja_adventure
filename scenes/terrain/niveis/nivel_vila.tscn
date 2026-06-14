@@ -2,10 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dekfh11rwh5cu" path="res://scenes/terrain/terreno_base.tscn" id="1_c6jfi"]
 [ext_resource type="PackedScene" uid="uid://datx6aqm5jwlc" path="res://scenes/personagem_base.tscn" id="2_ud82r"]
-[ext_resource type="Script" uid="uid://c681bhykkonst" path="res://scripts/niveis/portal.gd" id="3_ud82r"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ynie"]
-size = Vector2(32.894745, 9)
+[ext_resource type="PackedScene" uid="uid://c1va8dq48gyxg" path="res://scenes/terrain/niveis/portal.tscn" id="3_ud82r"]
 
 [node name="NivelVila" type="Node2D" unique_id=1060158659]
 
@@ -20,7 +17,7 @@ tile_map_data = PackedByteArray("AAAUAAQAAAAAAAYAAAAWAAQAAAABAAcAAAAXAAQAAAAFAAg
 
 [node name="Personagem" parent="TerrenoBase/YSort" parent_id_path=PackedInt32Array(1897213360, 484339081) index="0" unique_id=432514955 instance=ExtResource("2_ud82r")]
 y_sort_enabled = true
-position = Vector2(126, -21)
+position = Vector2(220, 172)
 _personagem_selecionado = 0
 
 [node name="Natureza1" parent="TerrenoBase/YSort" parent_id_path=PackedInt32Array(1897213360, 484339081) index="1" unique_id=725551608]
@@ -29,30 +26,8 @@ tile_map_data = PackedByteArray("AAAPAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAMAAAAAAAAAAA
 [node name="Casas" parent="TerrenoBase/YSort" parent_id_path=PackedInt32Array(1897213360, 484339081) index="2" unique_id=472055966]
 tile_map_data = PackedByteArray("AAANAAMAAAAIAAAAAAA=")
 
-[node name="Portal" type="Area2D" parent="TerrenoBase/YSort" parent_id_path=PackedInt32Array(1897213360, 484339081) index="3" unique_id=989944973]
-position = Vector2(131, -47)
-script = ExtResource("3_ud82r")
-_cena_alvo = "res://scenes/terrain/niveis/nivel_floresta.tscn"
-
-[node name="Colisor" type="CollisionShape2D" parent="TerrenoBase/YSort/Portal" unique_id=676516210]
-position = Vector2(-2.5, 1.5)
-scale = Vector2(0.76, 1)
-shape = SubResource("RectangleShape2D_3ynie")
-
-[node name="Contorno" type="ColorRect" parent="TerrenoBase/YSort/Portal" unique_id=923273185]
-offset_left = -13.0
-offset_top = -3.0
-offset_right = 9.0
-offset_bottom = 6.0
-color = Color(0, 0, 0, 0.6)
-
-[node name="Mascara" type="ColorRect" parent="TerrenoBase/YSort/Portal" unique_id=1183560211]
-offset_left = -12.0
-offset_top = -2.0
-offset_right = 8.0
-offset_bottom = 5.0
-color = Color(0.99998575, 0.10975724, 0.2914676, 0.6)
-
-[connection signal="body_entered" from="TerrenoBase/YSort/Portal" to="TerrenoBase/YSort/Portal" method="_on_body_entered"]
+[node name="Portal" parent="TerrenoBase/YSort" parent_id_path=PackedInt32Array(1897213360, 484339081) index="3" unique_id=1318200044 instance=ExtResource("3_ud82r")]
+position = Vector2(131, -44)
+_posicao_alvo = Vector2(0, -11)
 
 [editable path="TerrenoBase"]

@@ -28,6 +28,11 @@ func _ready() -> void:
 		"res://assets/actors/characters/" + _codigo_personagem[_personagem_selecionado] + "/spritesheet.png"
 	)
 	
+	if gerenciador_portais.posicao_alvo == Vector2(0,0):
+		return
+		
+	global_position = gerenciador_portais.posicao_alvo
+	
 	
 func _physics_process(_delta: float) -> void:
 	# get_vector ja normaliza a direcao diracao nas diagonais
