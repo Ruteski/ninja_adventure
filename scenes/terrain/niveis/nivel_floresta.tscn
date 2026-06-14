@@ -10,6 +10,7 @@ y_sort_enabled = true
 
 [node name="PortalVila" parent="YSort" unique_id=1318200044 instance=ExtResource("1_pluve")]
 _cena_alvo = "res://scenes/terrain/niveis/nivel_vila.tscn"
+_titulo_alvo = "Vilarejo"
 _posicao_alvo = Vector2(128, -37)
 
 [node name="PersonagemBase" parent="YSort" unique_id=432514955 instance=ExtResource("2_qlyjf")]
