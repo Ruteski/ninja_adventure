@@ -24,6 +24,9 @@ var _ataque_selecionado: String = ""
 
 
 func _ready() -> void:
+	# iniciando aqui pq o congelar chama a animacao fazendo o char olhar para a direcao correta
+	_prefixo_animacao = gerenciador_portais.direcao_alvo
+	
 	# inicia congelado
 	congelar(true)
 	
@@ -101,9 +104,9 @@ func congelar(isStop: bool) -> void:
 	set_physics_process(!isStop)
 	
 	# posso fazer dessa forma
-	#velocity = Vector2.ZERO
-	#_animar()
+	velocity = Vector2.ZERO
+	_animar()
 	
-	# ou desse forma(esta é a minha)
-	_animador.stop(isStop)
+	# ou desse forma(esta é a minha forma 1)
+	#_animador.stop(isStop)
 	

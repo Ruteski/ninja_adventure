@@ -29,6 +29,7 @@ tile_map_data = PackedByteArray("AAANAAMAAAAIAAAAAAA=")
 [node name="Portal" parent="TerrenoBase/YSort" parent_id_path=PackedInt32Array(1897213360, 484339081) index="3" unique_id=1318200044 instance=ExtResource("3_ud82r")]
 position = Vector2(131, -44)
 _titulo_alvo = "Floresta    Encantanda"
+_direcao_alvo = "_cima"
 _posicao_alvo = Vector2(0, -11)
 
 [editable path="TerrenoBase"]
