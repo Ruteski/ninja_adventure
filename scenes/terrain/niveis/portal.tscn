@@ -7,7 +7,6 @@ size = Vector2(30, 3)
 
 [node name="Portal" type="Area2D" unique_id=1318200044]
 script = ExtResource("1_ma8m2")
-_cena_alvo = "res://scenes/terrain/niveis/nivel_floresta.tscn"
 
 [node name="Colisor" type="CollisionShape2D" parent="." unique_id=1648532867]
 position = Vector2(0, 1.5)

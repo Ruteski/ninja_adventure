@@ -17,7 +17,7 @@ tile_map_data = PackedByteArray("AAAUAAQAAAAAAAYAAAAWAAQAAAABAAcAAAAXAAQAAAAFAAg
 
 [node name="Personagem" parent="TerrenoBase/YSort" parent_id_path=PackedInt32Array(1897213360, 484339081) index="0" unique_id=432514955 instance=ExtResource("2_ud82r")]
 y_sort_enabled = true
-position = Vector2(101, 9)
+position = Vector2(216, 70)
 _personagem_selecionado = 0
 
 [node name="Natureza1" parent="TerrenoBase/YSort" parent_id_path=PackedInt32Array(1897213360, 484339081) index="1" unique_id=725551608]
@@ -26,10 +26,18 @@ tile_map_data = PackedByteArray("AAAPAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAMAAAAAAAAAAA
 [node name="Casas" parent="TerrenoBase/YSort" parent_id_path=PackedInt32Array(1897213360, 484339081) index="2" unique_id=472055966]
 tile_map_data = PackedByteArray("AAANAAMAAAAIAAAAAAA=")
 
-[node name="Portal" parent="TerrenoBase/YSort" parent_id_path=PackedInt32Array(1897213360, 484339081) index="3" unique_id=1318200044 instance=ExtResource("3_ud82r")]
+[node name="PortalFloresta" parent="TerrenoBase/YSort" parent_id_path=PackedInt32Array(1897213360, 484339081) index="3" unique_id=1318200044 instance=ExtResource("3_ud82r")]
 position = Vector2(131, -44)
+_cena_alvo = "res://scenes/terrain/niveis/nivel_floresta.tscn"
 _titulo_alvo = "Floresta    Encantanda"
 _direcao_alvo = "_cima"
 _posicao_alvo = Vector2(0, -11)
+
+[node name="PortalCasa" parent="TerrenoBase/YSort" parent_id_path=PackedInt32Array(1897213360, 484339081) index="4" unique_id=402183421 instance=ExtResource("3_ud82r")]
+position = Vector2(216, 64)
+_cena_alvo = "res://scenes/terrain/niveis/nivel_casa_vila_inicial.tscn"
+_titulo_alvo = "Casa    Vilarejo"
+_direcao_alvo = "_cima"
+_posicao_alvo = Vector2(65, 144)
 
 [editable path="TerrenoBase"]
