@@ -24,6 +24,9 @@ var _ataque_selecionado: String = ""
 
 
 func _ready() -> void:
+	# inicia congelado
+	congelar(true)
+	
 	_textura.texture = load(
 		"res://assets/actors/characters/" + _codigo_personagem[_personagem_selecionado] + "/spritesheet.png"
 	)
@@ -92,3 +95,15 @@ func _on_animador_animation_finished(anim_name: StringName) -> void:
 		_atacando = false
 		_pode_atacar = true
 		set_physics_process(true)  # habilita andar
+	
+	
+func congelar(isStop: bool) -> void:
+	set_physics_process(!isStop)
+	
+	# posso fazer dessa forma
+	#velocity = Vector2.ZERO
+	#_animar()
+	
+	# ou desse forma(esta é a minha)
+	_animador.stop(isStop)
+	

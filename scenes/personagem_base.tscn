@@ -378,7 +378,7 @@ _data = {
 &"pulo_esquerda": SubResource("Animation_vfxan")
 }
 
-[node name="PersonagemBase" type="CharacterBody2D" unique_id=432514955 node_paths=PackedStringArray("_animador", "_textura")]
+[node name="PersonagemBase" type="CharacterBody2D" unique_id=432514955 node_paths=PackedStringArray("_animador", "_textura") groups=["personagem"]]
 script = ExtResource("1_7vu7r")
 _animador = NodePath("Animador")
 _textura = NodePath("Textura")

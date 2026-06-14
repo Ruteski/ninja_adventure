@@ -17,6 +17,7 @@ config/icon="uid://bpft1y6y54587"
 [autoload]
 
 gerenciador_portais="*uid://bgsi03v47x6nt"
+cena_transicao="*uid://c7wpt26eluxdv"
 
 [display]
 

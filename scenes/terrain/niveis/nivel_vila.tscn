@@ -17,7 +17,7 @@ tile_map_data = PackedByteArray("AAAUAAQAAAAAAAYAAAAWAAQAAAABAAcAAAAXAAQAAAAFAAg
 
 [node name="Personagem" parent="TerrenoBase/YSort" parent_id_path=PackedInt32Array(1897213360, 484339081) index="0" unique_id=432514955 instance=ExtResource("2_ud82r")]
 y_sort_enabled = true
-position = Vector2(220, 172)
+position = Vector2(101, 9)
 _personagem_selecionado = 0
 
 [node name="Natureza1" parent="TerrenoBase/YSort" parent_id_path=PackedInt32Array(1897213360, 484339081) index="1" unique_id=725551608]

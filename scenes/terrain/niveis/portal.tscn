@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://c681bhykkonst" path="res://scripts/niveis/portal.gd" id="1_ma8m2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ynie"]
-size = Vector2(30, 9)
+size = Vector2(30, 3)
 
 [node name="Portal" type="Area2D" unique_id=1318200044]
 script = ExtResource("1_ma8m2")
 _cena_alvo = "res://scenes/terrain/niveis/nivel_floresta.tscn"
 
 [node name="Colisor" type="CollisionShape2D" parent="." unique_id=1648532867]
-position = Vector2(0, 0.5)
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_3ynie")
 
 [node name="Contorno" type="ColorRect" parent="." unique_id=266714928]
