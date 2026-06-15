@@ -40,4 +40,10 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.10980392, 0.2901961, 0.6)
 
+[node name="ColisorFisico" type="StaticBody2D" parent="." unique_id=892828747]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColisorFisico" unique_id=2119735757]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

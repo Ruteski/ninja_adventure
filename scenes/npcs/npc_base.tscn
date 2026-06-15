@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://b86hxtub1uhfb" path="res://scripts/npcs/npc_base.gd" id="2_jhfuy"]
 
 [node name="NpcBase" unique_id=432514955 node_paths=PackedStringArray("_tempo_direcao") instance=ExtResource("1_r0mbh")]
+collision_layer = 3
+collision_mask = 3
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("2_jhfuy")
