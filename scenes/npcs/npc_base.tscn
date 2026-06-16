@@ -2,15 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://datx6aqm5jwlc" path="res://scenes/personagem_base.tscn" id="1_r0mbh"]
 [ext_resource type="Script" uid="uid://b86hxtub1uhfb" path="res://scripts/npcs/npc_base.gd" id="2_jhfuy"]
+[ext_resource type="Texture2D" uid="uid://4wb3t4u7lq5l" path="res://assets/ui/keyboard/key_e.png" id="3_10117"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jhfuy"]
+radius = 24.0
 
 [node name="NpcBase" unique_id=432514955 node_paths=PackedStringArray("_tempo_direcao") instance=ExtResource("1_r0mbh")]
 collision_layer = 3
 collision_mask = 3
-motion_mode = 1
-platform_on_leave = 2
 script = ExtResource("2_jhfuy")
 _npc_selecionado = 5
 _tempo_direcao = NodePath("TempoDirecao")
+_tempo_mudar_direcao = 5.0
 _codigo_personagem = Array[String](["boy", "inspector", "mask_frog", "master", "noble", "old_man", "princess", "samurai", "shaman", "spirit", "villager", "woman"])
 
 [node name="Camera2D" parent="." index="3" unique_id=2025137051]
@@ -19,4 +22,17 @@ enabled = false
 [node name="TempoDirecao" type="Timer" parent="." index="4" unique_id=1354957178]
 one_shot = true
 
+[node name="AreaDialogo" type="Area2D" parent="." index="5" unique_id=805198326]
+
+[node name="Colisor" type="CollisionShape2D" parent="AreaDialogo" index="0" unique_id=748009737]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_jhfuy")
+
+[node name="IndicadorFala" type="Sprite2D" parent="." index="6" unique_id=85389370]
+visible = false
+position = Vector2(0, -23)
+texture = ExtResource("3_10117")
+
 [connection signal="timeout" from="TempoDirecao" to="." method="_on_tempo_direcao_timeout"]
+[connection signal="body_entered" from="AreaDialogo" to="." method="_on_area_dialogo_body_entered"]
+[connection signal="body_exited" from="AreaDialogo" to="." method="_on_area_dialogo_body_exited"]
