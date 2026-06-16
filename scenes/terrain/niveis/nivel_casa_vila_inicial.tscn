@@ -27,6 +27,7 @@ tile_map_data = PackedByteArray("AAAVAAYAAAAOAAAAAAAWAAYAAAAAAAkAABAPAAIAAAAIAAo
 
 [node name="NpcBase" parent="TerrenoInterior/YSort" parent_id_path=PackedInt32Array(475993973, 1137326583) index="2" unique_id=1605439703 instance=ExtResource("3_tt6x3")]
 position = Vector2(64, 138)
+_tempo_mudar_direcao = 5.0
 
 [node name="Portal" parent="." unique_id=1318200044 instance=ExtResource("2_hs1to")]
 position = Vector2(64, 154)

@@ -20,6 +20,7 @@ var _direcao: Vector2 = Vector2.ZERO
 
 @export var _npc_selecionado: Npcs
 @export var _tempo_direcao: Timer
+@export var _tempo_mudar_direcao: float = 5
 
 
 func _ready() -> void:
@@ -30,7 +31,7 @@ func _ready() -> void:
 		"res://assets/actors/npcs/" + _codigo_personagem[_npc_selecionado] + "/spritesheet.png"
 	)
 	
-	_tempo_direcao.start(5.0)
+	_tempo_direcao.start(_tempo_mudar_direcao)
 
 
 func _physics_process(_delta: float) -> void:
@@ -64,9 +65,8 @@ func _on_tempo_direcao_timeout() -> void:
 		).normalized()
 		print(_direcao)
 		
-
-		
 	else:
 		_direcao = Vector2.ZERO
-		
-	_tempo_direcao.start(5.0)
+	
+	_tempo_mudar_direcao = randi_range(1, 6)
+	_tempo_direcao.start(_tempo_mudar_direcao)
