@@ -18,11 +18,14 @@ enum Npcs {
 
 var _direcao: Vector2 = Vector2.ZERO
 var _personagem_no_alcanse: bool = false
+var _dialogo_aberto := false
+var _personagem: PersonagemBase = null
 
 @export var _npc_selecionado: Npcs
 @export var _tempo_direcao: Timer
 @export var _tempo_mudar_direcao: float = 5
 @export var _nome_npc: String = ""
+@export var _interface: CanvasLayer
 
 #@export var _indicador_fala: Sprite2D
 #ou assim
@@ -43,6 +46,13 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	# se tiver personagem no alcance, ele nao se movimenta
 	if _personagem_no_alcanse:
+		if Input.is_action_just_pressed("interagir") && !_dialogo_aberto:
+			var _cena_dialogo: CenaDialogo = load("res://scenes/ui/dialog/cena_dialogo.tscn").instantiate()
+			_cena_dialogo.informacoes_dialogo = gerenciador_dialogos.lista_dialogos[_nome_npc]
+			_interface.add_child(_cena_dialogo)
+			_dialogo_aberto = true
+			_personagem.congelar(true)
+			
 		velocity = Vector2.ZERO
 		_animar()
 		return
@@ -96,8 +106,9 @@ func _on_area_dialogo_body_entered(body: Node2D) -> void:
 			return 
 			
 		_personagem_no_alcanse = true
+		_personagem = body
+		body.esta_no_alcance(self)
 		_indicador_fala.show()
-		print(gerenciador_dialogos.lista_dialogos[_nome_npc])
 
 
 func _on_area_dialogo_body_exited(body: Node2D) -> void:
@@ -108,4 +119,6 @@ func _on_area_dialogo_body_exited(body: Node2D) -> void:
 	# deixado assim pra variar o codigo com a func de entered
 	if body is PersonagemBase:
 		_personagem_no_alcanse = false
+		_personagem = null
+		body.esta_no_alcance(null)
 		_indicador_fala.hide()

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cmujbpp5dsv2l"]
 
 [ext_resource type="Texture2D" uid="uid://tk4ue5ljta3q" path="res://assets/ui/dialog/dialog_box.png" id="1_7fj8m"]
+[ext_resource type="Script" uid="uid://blija0r32umuc" path="res://scripts/ui/dialog/cena_dialogo.gd" id="1_kydci"]
 [ext_resource type="Texture2D" uid="uid://127c4j6uxrlg" path="res://assets/actors/character/flam/faceset.png" id="2_l7ueq"]
 [ext_resource type="Texture2D" uid="uid://dwjmu3lgwnd53" path="res://assets/ui/dialog/choice_box.png" id="4_kydci"]
 [ext_resource type="FontFile" uid="uid://ru542oicrp0u" path="res://assets/ui/font/Kurland.ttf" id="4_txoaw"]
@@ -24,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kydci")
 
 [node name="TexturaFundo" type="TextureRect" parent="." unique_id=1089570041]
 layout_mode = 1

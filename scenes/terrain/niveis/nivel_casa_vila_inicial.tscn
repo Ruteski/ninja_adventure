@@ -25,9 +25,10 @@ _personagem_selecionado = 1
 [node name="ElementosInternos" parent="TerrenoInterior/YSort" parent_id_path=PackedInt32Array(475993973, 1137326583) index="1" unique_id=742217508]
 tile_map_data = PackedByteArray("AAAVAAYAAAAOAAAAAAAWAAYAAAAAAAkAABAPAAIAAAAIAAoAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAMAAAAAAAAAAAAHAAcAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAcAAAAAAAAAAAAMAAEAAAAAAAoAAAAcAAkAAAAAAAoAAAAUAAYAAAAAAAkAAAAaAAAAAAAIAAcAAAAUAP//AAAIAAkAAAAJAAAAAAAHAAkAAAAFAAAAAAAHAAkAAAAHAAAAAAAGAAoAAAAMAAgAAAAAAAcAAAASAAkAAAAAAAcAAAABAAEAAAABAAcAAAACAAEAAAACAAcAAAAXAAAAAAAGAAcAAAAbAAQAAAAGAAcAAAA=")
 
-[node name="NpcBase" parent="TerrenoInterior/YSort" parent_id_path=PackedInt32Array(475993973, 1137326583) index="2" unique_id=1605439703 instance=ExtResource("3_tt6x3")]
+[node name="NpcBase" parent="TerrenoInterior/YSort" parent_id_path=PackedInt32Array(475993973, 1137326583) index="2" unique_id=1605439703 node_paths=PackedStringArray("_interface") instance=ExtResource("3_tt6x3")]
 position = Vector2(125, 84)
 _nome_npc = "old_man_vila_inicial"
+_interface = NodePath("../../../Interface")
 
 [node name="Portal" parent="." unique_id=1318200044 instance=ExtResource("2_hs1to")]
 position = Vector2(64, 154)
@@ -38,6 +39,8 @@ _posicao_alvo = Vector2(216, 70)
 
 [node name="CollisionShape2D" parent="Portal/ColisorFisico" parent_id_path=PackedInt32Array(1318200044, 892828747) index="0" unique_id=2119735757]
 shape = SubResource("RectangleShape2D_tt6x3")
+
+[node name="Interface" type="CanvasLayer" parent="." unique_id=66434618]
 
 [editable path="TerrenoInterior"]
 [editable path="Portal"]

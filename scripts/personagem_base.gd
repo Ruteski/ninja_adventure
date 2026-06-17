@@ -12,6 +12,7 @@ var _prefixo_animacao: String = "_baixo"
 var _pode_atacar: bool = true
 var _atacando: bool = false
 var _ataque_selecionado: String = ""
+var _npc_no_alcance: NpcBase = null
 
 @export_category("Objetos")
 @export var _animador: AnimationPlayer
@@ -49,18 +50,19 @@ func _physics_process(_delta: float) -> void:
 		"mover_baixo"
 	)
 	
-	# sempre vai priorizar a ultima direcao disponivel(apertada) 
-	if Input.is_action_pressed("mover_esquerda"): # is_action_pressed  -> le acao enquanto estiver sendo precionada(segurando o botao)
-		_prefixo_animacao = "_esquerda"
-		
-	if Input.is_action_pressed("mover_direita"):
-		_prefixo_animacao = "_direita"
-		
-	if Input.is_action_pressed("mover_baixo") && direcao.y != 0:
-		_prefixo_animacao = "_baixo"
-		
-	if Input.is_action_pressed("mover_cima") && direcao.y != 0:
-		_prefixo_animacao = "_cima"
+	if _npc_no_alcance == null:
+		# sempre vai priorizar a ultima direcao disponivel(apertada) 
+		if Input.is_action_pressed("mover_esquerda"): # is_action_pressed  -> le acao enquanto estiver sendo precionada(segurando o botao)
+			_prefixo_animacao = "_esquerda"
+			
+		if Input.is_action_pressed("mover_direita"):
+			_prefixo_animacao = "_direita"
+			
+		if Input.is_action_pressed("mover_baixo") && direcao.y != 0:
+			_prefixo_animacao = "_baixo"
+			
+		if Input.is_action_pressed("mover_cima") && direcao.y != 0:
+			_prefixo_animacao = "_cima"
 	
 	velocity = direcao * 64.0
 	move_and_slide() # sempre tem que ter esse metodo pra fazer se movimentar
@@ -109,4 +111,7 @@ func congelar(isStop: bool) -> void:
 	
 	# ou desse forma(esta é a minha forma 1)
 	#_animador.stop(isStop)
-	
+
+
+func esta_no_alcance(body: NpcBase) -> void:
+	_npc_no_alcance = body
