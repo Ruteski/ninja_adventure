@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://cmujbpp5dsv2l"]
+
+[ext_resource type="Texture2D" uid="uid://tk4ue5ljta3q" path="res://assets/ui/dialog/dialog_box.png" id="1_7fj8m"]
+[ext_resource type="Texture2D" uid="uid://127c4j6uxrlg" path="res://assets/actors/character/flam/faceset.png" id="2_l7ueq"]
+[ext_resource type="Texture2D" uid="uid://dwjmu3lgwnd53" path="res://assets/ui/dialog/choice_box.png" id="4_kydci"]
+[ext_resource type="FontFile" uid="uid://ru542oicrp0u" path="res://assets/ui/font/Kurland.ttf" id="4_txoaw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_txoaw"]
+font = ExtResource("4_txoaw")
+font_size = 9
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_offset = Vector2(0.5, 0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l7ueq"]
+line_spacing = 0.0
+font = ExtResource("4_txoaw")
+font_size = 7
+font_color = Color(0.11764706, 0.11764706, 0.11764706, 1)
+
+[node name="CenaDialogo" type="Control" unique_id=1944250851]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TexturaFundo" type="TextureRect" parent="." unique_id=1089570041]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -64.0
+offset_right = 150.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_7fj8m")
+
+[node name="Foto" type="TextureRect" parent="TexturaFundo" unique_id=507763501]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 14.0
+offset_right = 44.0
+offset_bottom = 52.0
+texture = ExtResource("2_l7ueq")
+flip_h = true
+
+[node name="Label" type="Label" parent="TexturaFundo" unique_id=1453361507]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 69.0
+offset_bottom = 10.0
+text = "GATO"
+label_settings = SubResource("LabelSettings_txoaw")
+vertical_alignment = 1
+
+[node name="Dialogo" type="Label" parent="TexturaFundo" unique_id=933155064]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 15.0
+offset_right = 291.0
+offset_bottom = 51.0
+text = "Olá, este é um texto de teste para o sistema de diálogo do nosso projeto!"
+label_settings = SubResource("LabelSettings_l7ueq")
+autowrap_mode = 2
+
+[node name="ContainerVertical" type="VBoxContainer" parent="TexturaFundo" unique_id=217405672]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = 15.0
+offset_right = -8.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="DialogoEscolha" type="Label" parent="TexturaFundo/ContainerVertical" unique_id=1042748106]
+layout_mode = 2
+text = "Qual a sua classe?"
+label_settings = SubResource("LabelSettings_l7ueq")
+
+[node name="ContainerHorizontal" type="HBoxContainer" parent="TexturaFundo/ContainerVertical" unique_id=1251733953]
+layout_mode = 2
+
+[node name="Escolha1" type="NinePatchRect" parent="TexturaFundo/ContainerVertical/ContainerHorizontal" unique_id=1276098487]
+custom_minimum_size = Vector2(64, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_kydci")
+
+[node name="Texto" type="Label" parent="TexturaFundo/ContainerVertical/ContainerHorizontal/Escolha1" unique_id=1613579973]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -5.0
+offset_right = 32.5
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Mago"
+label_settings = SubResource("LabelSettings_l7ueq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Escolha2" type="NinePatchRect" parent="TexturaFundo/ContainerVertical/ContainerHorizontal" unique_id=1641657856]
+custom_minimum_size = Vector2(64, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_kydci")
+
+[node name="Texto" type="Label" parent="TexturaFundo/ContainerVertical/ContainerHorizontal/Escolha2" unique_id=1973341420]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -5.0
+offset_right = 32.5
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Guerreiro"
+label_settings = SubResource("LabelSettings_l7ueq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Escolha3" type="NinePatchRect" parent="TexturaFundo/ContainerVertical/ContainerHorizontal" unique_id=1815275767]
+custom_minimum_size = Vector2(64, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_kydci")
+
+[node name="Texto" type="Label" parent="TexturaFundo/ContainerVertical/ContainerHorizontal/Escolha3" unique_id=1632515835]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -5.0
+offset_right = 32.5
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Arqueiro"
+label_settings = SubResource("LabelSettings_l7ueq")
+horizontal_alignment = 1
+vertical_alignment = 1
