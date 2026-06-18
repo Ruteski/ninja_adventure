@@ -51,7 +51,7 @@ offset_bottom = 52.0
 texture = ExtResource("2_l7ueq")
 flip_h = true
 
-[node name="Label" type="Label" parent="TexturaFundo" unique_id=1453361507]
+[node name="Titulo" type="Label" parent="TexturaFundo" unique_id=1453361507]
 layout_mode = 0
 offset_left = 6.0
 offset_right = 69.0
@@ -94,6 +94,7 @@ label_settings = SubResource("LabelSettings_l7ueq")
 layout_mode = 2
 
 [node name="Escolha1" type="NinePatchRect" parent="TexturaFundo/ContainerVertical/ContainerHorizontal" unique_id=1276098487]
+visible = false
 custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -118,6 +119,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Escolha2" type="NinePatchRect" parent="TexturaFundo/ContainerVertical/ContainerHorizontal" unique_id=1641657856]
+visible = false
 custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -142,6 +144,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Escolha3" type="NinePatchRect" parent="TexturaFundo/ContainerVertical/ContainerHorizontal" unique_id=1815275767]
+visible = false
 custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
 size_flags_horizontal = 3

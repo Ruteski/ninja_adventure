@@ -1,6 +1,5 @@
 class_name NpcBase extends PersonagemBase
 
-
 enum Npcs {
 	boy = 0,
 	inspector = 1,
@@ -20,6 +19,8 @@ var _direcao: Vector2 = Vector2.ZERO
 var _personagem_no_alcanse: bool = false
 var _dialogo_aberto := false
 var _personagem: PersonagemBase = null
+var dialogo_atual: String = "primeiro_dialogo"
+var _indice_dialogo: int = 0
 
 @export var _npc_selecionado: Npcs
 @export var _tempo_direcao: Timer
@@ -49,6 +50,8 @@ func _physics_process(_delta: float) -> void:
 		if Input.is_action_just_pressed("interagir") && !_dialogo_aberto:
 			var _cena_dialogo: CenaDialogo = load("res://scenes/ui/dialog/cena_dialogo.tscn").instantiate()
 			_cena_dialogo.informacoes_dialogo = gerenciador_dialogos.lista_dialogos[_nome_npc]
+			_cena_dialogo.dialogo_atual = dialogo_atual
+			_cena_dialogo.indice_dialogo = _indice_dialogo
 			_interface.add_child(_cena_dialogo)
 			_dialogo_aberto = true
 			_personagem.congelar(true)
