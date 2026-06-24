@@ -30,3 +30,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		# antes era assim
 		get_tree().change_scene_to_file(path_cena_alvo)
 		animador.play('fade_out')
+		# Color.DARK_MAGENTA.lerp()

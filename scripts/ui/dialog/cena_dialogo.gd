@@ -1,18 +1,21 @@
 class_name CenaDialogo extends Control
 
 var informacoes_dialogo: Dictionary
-var dialogo_atual: String
 var indice_dialogo: int
+var npc_atual: NpcBase
+var personagem_atual: PersonagemBase
+var dialogo_atual: String
 
-@onready var _dialogo = $TexturaFundo/Dialogo
-@onready var _foto = $TexturaFundo/Foto
-@onready var _nome_npc = $TexturaFundo/Titulo
-@onready var _container_questao = $TexturaFundo/ContainerVertical
-@onready var _dialogo_questao = $TexturaFundo/ContainerVertical/DialogoEscolha
-@onready var _container_escolhas = $TexturaFundo/ContainerVertical/ContainerHorizontal
+@onready var _dialogo: Label = $TexturaFundo/Dialogo
+@onready var _foto: TextureRect = $TexturaFundo/Foto
+@onready var _nome_npc: Label = $TexturaFundo/Titulo
+@onready var _container_questao: VBoxContainer = $TexturaFundo/ContainerVertical
+@onready var _dialogo_questao: Label = $TexturaFundo/ContainerVertical/DialogoEscolha
+@onready var _container_escolhas: HBoxContainer = $TexturaFundo/ContainerVertical/ContainerHorizontal
 
 
 func _ready() -> void:
+	dialogo_atual = informacoes_dialogo["dialogo_atual"]
 	_carregar_dialogo()
 
 
@@ -29,8 +32,24 @@ func _process(_delta: float) -> void:
 
 
 func _matar_dialogo() -> void :
+	if dialogo_atual == "primeiro_dialogo":
+		if informacoes_dialogo.has("segundo_dialogo"):
+			informacoes_dialogo["dialogo_atual"] = "segundo_dialogo"
+			
+	elif dialogo_atual == "segundo_dialogo":
+		if informacoes_dialogo.has("terceiro_dialogo"):
+			informacoes_dialogo["dialogo_atual"] = "terceiro_dialogo"
+			
+		elif informacoes_dialogo["tipo_dialogo"] == "loop":
+			informacoes_dialogo["dialogo_atual"] = "primeiro_dialogo"			
+			
+	elif dialogo_atual == "terceiro_dialogo":
+		if informacoes_dialogo["tipo_dialogo"] == "loop":
+			informacoes_dialogo["dialogo_atual"] = "primeiro_dialogo"
+	
+	npc_atual.dialogo_aberto = false
+	personagem_atual.congelar(false)
 	queue_free()
-
 
 
 func _carregar_dialogo() -> void:

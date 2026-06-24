@@ -14,6 +14,7 @@ script = ExtResource("2_jhfuy")
 _npc_selecionado = 5
 _tempo_direcao = NodePath("TempoDirecao")
 _tempo_mudar_direcao = 5.0
+_nome_npc = ""
 _codigo_personagem = Array[String](["boy", "inspector", "mask_frog", "master", "noble", "old_man", "princess", "samurai", "shaman", "spirit", "villager", "woman"])
 
 [node name="Camera2D" parent="." index="3" unique_id=2025137051]
