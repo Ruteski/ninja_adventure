@@ -13,6 +13,7 @@ var lista_dialogos: Dictionary = {
 			},
 			1: {
 				"tipo": "questao",
+				"pergunta": "tipo_classe_personagem",
 				"texto": "Você apareceu nesta casa do nada. Me diga, qual a sua classe?",
 				"respostas": ["Guerreiro", "Ladino", "Mago"],
 			},

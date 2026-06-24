@@ -98,6 +98,7 @@ visible = false
 custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 0
 texture = ExtResource("4_kydci")
 
 [node name="Texto" type="Label" parent="TexturaFundo/ContainerVertical/ContainerHorizontal/Escolha1" unique_id=1613579973]
@@ -123,6 +124,7 @@ visible = false
 custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 0
 texture = ExtResource("4_kydci")
 
 [node name="Texto" type="Label" parent="TexturaFundo/ContainerVertical/ContainerHorizontal/Escolha2" unique_id=1973341420]
@@ -148,6 +150,7 @@ visible = false
 custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 0
 texture = ExtResource("4_kydci")
 
 [node name="Texto" type="Label" parent="TexturaFundo/ContainerVertical/ContainerHorizontal/Escolha3" unique_id=1632515835]

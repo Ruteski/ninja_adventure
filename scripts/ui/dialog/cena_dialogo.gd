@@ -15,12 +15,42 @@ var dialogo_atual: String
 
 
 func _ready() -> void:
+	for  _escolha: NinePatchRect in $TexturaFundo/ContainerVertical/ContainerHorizontal.get_children():
+		_escolha.mouse_entered.connect(_quando_mouse_entrar.bind(_escolha))
+		_escolha.mouse_exited.connect(_quando_mouse_sair.bind(_escolha))
+		_escolha.gui_input.connect(_quando_selecionar_escolha.bind(_escolha))
+		
 	dialogo_atual = informacoes_dialogo["dialogo_atual"]
 	_carregar_dialogo()
 
 
+func _quando_mouse_entrar(_escolha: NinePatchRect) -> void:
+	_escolha.modulate.a = 0.5
+
+
+func _quando_mouse_sair(_escolha: NinePatchRect) -> void:
+	_escolha.modulate.a = 1
+
+
+# existe o primeiro param _event, pq o signal gui_input, por padrao ja recebe um param do tipo InputEvent 
+func _quando_selecionar_escolha(_event, _escolha: NinePatchRect):
+	if _event is InputEventMouseButton:
+		if _event.button_index == 1 && _event.pressed == true:
+			match informacoes_dialogo[dialogo_atual][indice_dialogo]["pergunta"]:
+				"tipo_classe_personagem":
+					informacoes_personagem.classe = _escolha.get_node("Texto").text
+					
+			indice_dialogo += 1
+			#print(_escolha)
+			#print(_escolha.get_node("Texto").text)
+			print(informacoes_personagem.classe)
+			_carregar_dialogo()
+
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("confirmar"):
+		if informacoes_dialogo[dialogo_atual][indice_dialogo]["tipo"] == "questao":
+			return
 		#informacoes_dialogo[dialogo_atual].keys().size()
 		indice_dialogo += 1
 		
