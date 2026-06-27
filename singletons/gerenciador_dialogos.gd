@@ -34,5 +34,23 @@ var lista_dialogos: Dictionary = {
 				"texto": "... Você ainda está aqui? Vá explorar o mundo!"
 			}
 		}		
+	},
+	"bau_casa_vila_inicial" : {
+		"foto": "",
+		"nome": "Baú da Vila",
+		"dialogo_atual": "primeiro_dialogo",
+		"tipo_dialogo": "sequencial",
+		"primeiro_dialogo": {
+			0: {
+				"tipo": "mensagem",
+				"texto": "Você adquiriu sua arma inicial!",
+			},
+		},
+		"segundo_dialogo": {
+			0: {
+				"tipo": "mensagem",
+				"texto": "Você já coletou sua arma!"
+			}
+		},		
 	}
 }

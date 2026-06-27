@@ -4,9 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://c1va8dq48gyxg" path="res://scenes/terrain/niveis/portal.tscn" id="2_hs1to"]
 [ext_resource type="PackedScene" uid="uid://datx6aqm5jwlc" path="res://scenes/personagem_base.tscn" id="3_duqgk"]
 [ext_resource type="PackedScene" uid="uid://43ougq2rq8jq" path="res://scenes/npcs/npc_base.tscn" id="3_tt6x3"]
+[ext_resource type="Script" uid="uid://2v0rmqapg4vq" path="res://scripts/ui/area_bau.gd" id="5_htfvq"]
+[ext_resource type="Texture2D" uid="uid://bdbijogj1v8gl" path="res://assets/ui/input/keyboard/keye.png" id="5_p5d58"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tt6x3"]
 size = Vector2(32, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xd07"]
+size = Vector2(14, 22)
 
 [node name="NivelCasaVilaInicial" type="Node2D" unique_id=514200019]
 
@@ -19,11 +24,11 @@ tile_map_data = PackedByteArray("AAAMAAgAAAANAA4AAAAMAAcAAAAQAA0AAAAMAAYAAAAMAA0
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAANAAAAAAAEAAAAAAAdAP//AAAEAAAAAAAdAAoAAAAEAAQAAAANAAkAAAAEAAQAAAAAAAkAAAAAAAQAAAARAAoAAAAAAAQAAAARAP//AAAAAAAAAAASAP//AAADAAAAAAATAP//AAADAAAAAAAUAP//AAADAAAAAAAVAP//AAADAAAAAAAWAP//AAADAAAAAAAXAP//AAADAAAAAAAYAP//AAADAAAAAAAZAP//AAADAAAAAAAaAP//AAADAAAAAAAbAP//AAADAAAAAAAcAP//AAADAAAAAAABAAAAAAADAAAAAAACAAAAAAADAAAAAAADAAAAAAADAAAAAAAEAAAAAAADAAAAAAAFAAAAAAADAAAAAAAGAAAAAAADAAAAAAAHAAAAAAADAAAAAAAIAAAAAAADAAAAAAAJAAAAAAADAAAAAAAKAAAAAAADAAAAAAALAAAAAAADAAAAAAAMAAAAAAADAAAAAAABAAkAAAADAAQAAAACAAkAAAABAAQAAAAFAAkAAAACAAQAAAAIAAkAAAADAAQAAAAJAAkAAAADAAQAAAAKAAkAAAADAAQAAAALAAkAAAADAAQAAAAMAAkAAAADAAQAAAASAAoAAAADAAQAAAATAAoAAAADAAQAAAAUAAoAAAADAAQAAAAVAAoAAAADAAQAAAAWAAoAAAADAAQAAAAXAAoAAAADAAQAAAAYAAoAAAADAAQAAAAZAAoAAAADAAQAAAAaAAoAAAADAAQAAAAbAAoAAAADAAQAAAAcAAoAAAADAAQAAAAdAAAAAAAEAAEAAAAdAAEAAAAEAAEAAAAdAAIAAAAEAAEAAAAdAAMAAAAEAAEAAAAdAAQAAAAEAAEAAAAdAAUAAAAEAAEAAAAdAAYAAAAEAAEAAAAdAAcAAAAEAAEAAAAdAAgAAAAEAAEAAAAdAAkAAAAEAAEAAAARAAAAAAAAAAEAAAARAAEAAAAAAAEAAAARAAIAAAADAAIAAAARAAcAAAADAAEAAAARAAgAAAAAAAEAAAARAAkAAAAAAAEAAAANAAcAAAACAAEAAAANAAgAAAAEAAEAAAANAAEAAAAEAAEAAAANAAIAAAACAAIAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAEAAAAAAAYAAAAAAAEAAAAAAAcAAAAAAAEAAAAAAAgAAAAAAAEAAAAOAAIAAAADAAAAAAAPAAIAAAADAAAAAAAQAAIAAAADAAAAAAAOAAcAAAADAAQAAAAPAAcAAAADAAQAAAAQAAcAAAADAAQAAAAHAAkAAAADAAQAAAAGAAkAAAADAAQAAAA=")
 
 [node name="PersonagemBase" parent="TerrenoInterior/YSort" parent_id_path=PackedInt32Array(475993973, 1137326583) index="0" unique_id=432514955 instance=ExtResource("3_duqgk")]
-position = Vector2(64, 119)
+position = Vector2(454, 43)
 _personagem_selecionado = 1
 
 [node name="ElementosInternos" parent="TerrenoInterior/YSort" parent_id_path=PackedInt32Array(475993973, 1137326583) index="1" unique_id=742217508]
-tile_map_data = PackedByteArray("AAAVAAYAAAAOAAAAAAAWAAYAAAAAAAkAABAPAAIAAAAIAAoAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAMAAAAAAAAAAAAHAAcAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAcAAAAAAAAAAAAMAAEAAAAAAAoAAAAcAAkAAAAAAAoAAAAUAAYAAAAAAAkAAAAaAAAAAAAIAAcAAAAUAP//AAAIAAkAAAAJAAAAAAAHAAkAAAAFAAAAAAAHAAkAAAAHAAAAAAAGAAoAAAAMAAgAAAAAAAcAAAASAAkAAAAAAAcAAAABAAEAAAABAAcAAAACAAEAAAACAAcAAAAXAAAAAAAGAAcAAAAbAAQAAAAGAAcAAAA=")
+tile_map_data = PackedByteArray("AAAVAAYAAAAOAAAAAAAWAAYAAAAAAAkAABAPAAIAAAAIAAoAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAMAAAAAAAAAAAAHAAcAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAcAAAAAAAAAAAAMAAEAAAAAAAoAAAAcAAkAAAAAAAoAAAAUAAYAAAAAAAkAAAAaAAAAAAAIAAcAAAAUAP//AAAIAAkAAAAJAAAAAAAHAAkAAAAFAAAAAAAHAAkAAAAHAAAAAAAGAAoAAAAMAAgAAAAAAAcAAAASAAkAAAAAAAcAAAABAAEAAAABAAcAAAACAAEAAAACAAcAAAAXAAAAAAAGAAcAAAAbAAQAAAAGAAcAAAAcAAAAAAAAAAAAAAA=")
 
 [node name="NpcBase" parent="TerrenoInterior/YSort" parent_id_path=PackedInt32Array(475993973, 1137326583) index="2" unique_id=1605439703 node_paths=PackedStringArray("_interface") instance=ExtResource("3_tt6x3")]
 position = Vector2(125, 84)
@@ -41,6 +46,25 @@ _posicao_alvo = Vector2(216, 70)
 shape = SubResource("RectangleShape2D_tt6x3")
 
 [node name="Interface" type="CanvasLayer" parent="." unique_id=66434618]
+
+[node name="AreaBau" type="Area2D" parent="." unique_id=763762367 node_paths=PackedStringArray("_indicador_fala", "_interface")]
+position = Vector2(456, 10)
+script = ExtResource("5_htfvq")
+_indicador_fala = NodePath("Indicador")
+_nome_objeto = "bau_casa_vila_inicial"
+_interface = NodePath("../Interface")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaBau" unique_id=780066605]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_3xd07")
+
+[node name="Indicador" type="Sprite2D" parent="AreaBau" unique_id=1755450900]
+visible = false
+position = Vector2(0, -18)
+texture = ExtResource("5_p5d58")
+
+[connection signal="body_entered" from="AreaBau" to="AreaBau" method="_on_body_entered"]
+[connection signal="body_exited" from="AreaBau" to="AreaBau" method="_on_body_exited"]
 
 [editable path="TerrenoInterior"]
 [editable path="Portal"]

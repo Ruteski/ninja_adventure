@@ -2,7 +2,7 @@ class_name CenaDialogo extends Control
 
 var informacoes_dialogo: Dictionary
 var indice_dialogo: int
-var npc_atual: NpcBase
+var npc_atual
 var personagem_atual: PersonagemBase
 var dialogo_atual: String
 
@@ -108,7 +108,11 @@ func _matar_dialogo() -> void :
 func _carregar_dialogo() -> void:
 	var _informacoes_dialogo_atual: Dictionary = informacoes_dialogo[dialogo_atual][indice_dialogo]
 	
-	_foto.texture = load(informacoes_dialogo["foto"])
+	if !informacoes_dialogo["foto"].is_empty():
+		_foto.texture = load(informacoes_dialogo["foto"])
+	else:
+		_foto.texture = null
+		
 	_nome_npc.text = informacoes_dialogo["nome"]
 	
 	match _informacoes_dialogo_atual["tipo"]:

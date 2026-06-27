@@ -12,7 +12,7 @@ var _prefixo_animacao: String = "_baixo"
 var _pode_atacar: bool = true
 var _atacando: bool = false
 var _ataque_selecionado: String = ""
-var _npc_no_alcance: NpcBase = null
+var _npc_no_alcance = null
 
 @export_category("Objetos")
 @export var _animador: AnimationPlayer
@@ -113,5 +113,5 @@ func congelar(isStop: bool) -> void:
 	#_animador.stop(isStop)
 
 
-func esta_no_alcance(body: NpcBase) -> void:
+func esta_no_alcance(body) -> void:
 	_npc_no_alcance = body
