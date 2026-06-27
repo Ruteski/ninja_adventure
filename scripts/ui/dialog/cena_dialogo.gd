@@ -12,9 +12,16 @@ var dialogo_atual: String
 @onready var _container_questao: VBoxContainer = $TexturaFundo/ContainerVertical
 @onready var _dialogo_questao: Label = $TexturaFundo/ContainerVertical/DialogoEscolha
 @onready var _container_escolhas: HBoxContainer = $TexturaFundo/ContainerVertical/ContainerHorizontal
+@onready var _confirmar: TextureRect = $TexturaFundo/Confirmar
 
+
+#TODO corrigir problema ao usar o mouse para mudar de dialogo
 
 func _ready() -> void:
+	_confirmar.mouse_entered.connect(_quando_mouse_entrar.bind(_confirmar))
+	_confirmar.mouse_exited.connect(_quando_mouse_sair.bind(_confirmar))
+	_confirmar.gui_input.connect(_quando_selecionar_escolha.bind(_confirmar))
+	
 	for  _escolha: NinePatchRect in $TexturaFundo/ContainerVertical/ContainerHorizontal.get_children():
 		_escolha.mouse_entered.connect(_quando_mouse_entrar.bind(_escolha))
 		_escolha.mouse_exited.connect(_quando_mouse_sair.bind(_escolha))
@@ -24,41 +31,57 @@ func _ready() -> void:
 	_carregar_dialogo()
 
 
-func _quando_mouse_entrar(_escolha: NinePatchRect) -> void:
+func _quando_mouse_entrar(_escolha: CanvasItem) -> void:
 	_escolha.modulate.a = 0.5
 
 
-func _quando_mouse_sair(_escolha: NinePatchRect) -> void:
+func _quando_mouse_sair(_escolha: CanvasItem) -> void:
 	_escolha.modulate.a = 1
 
 
 # existe o primeiro param _event, pq o signal gui_input, por padrao ja recebe um param do tipo InputEvent 
-func _quando_selecionar_escolha(_event, _escolha: NinePatchRect):
+func _quando_selecionar_escolha(_event, _escolha: Control):
 	if _event is InputEventMouseButton:
 		if _event.button_index == 1 && _event.pressed == true:
+			if _escolha.name == "confirmar":
+				_tratar_mudanca_dialogo()
+				return
+				
 			match informacoes_dialogo[dialogo_atual][indice_dialogo]["pergunta"]:
 				"tipo_classe_personagem":
 					informacoes_personagem.classe = _escolha.get_node("Texto").text
 					
-			indice_dialogo += 1
 			#print(_escolha)
 			#print(_escolha.get_node("Texto").text)
 			print(informacoes_personagem.classe)
-			_carregar_dialogo()
+			_tratar_mudanca_dialogo()
+
+
+func _tratar_mudanca_dialogo() -> void:
+	indice_dialogo += 1
+	if indice_dialogo >= informacoes_dialogo[dialogo_atual].size():
+		_matar_dialogo()
+		return
+		
+	_carregar_dialogo()	
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("confirmar"):
-		if informacoes_dialogo[dialogo_atual][indice_dialogo]["tipo"] == "questao":
-			return
-		#informacoes_dialogo[dialogo_atual].keys().size()
-		indice_dialogo += 1
+	if indice_dialogo < informacoes_dialogo[dialogo_atual].size():
+		if informacoes_dialogo[dialogo_atual][indice_dialogo]["tipo"] != "questao":
+			$TexturaFundo/Confirmar.visible = _dialogo.visible_ratio == 1.0
+	
+	if _dialogo.visible_ratio < 1.0:
+		_dialogo.visible_ratio += 0.01
 		
-		if indice_dialogo >= informacoes_dialogo[dialogo_atual].size() :
-			_matar_dialogo()
-			return
-			
-		_carregar_dialogo()
+	if Input.is_action_just_pressed("confirmar"):
+		if _dialogo.visible_ratio < 1.0:
+			_dialogo.visible_ratio = 1
+		else: 
+			if informacoes_dialogo[dialogo_atual][indice_dialogo]["tipo"] == "questao":
+				return
+			#informacoes_dialogo[dialogo_atual].keys().size()
+			_tratar_mudanca_dialogo()
 
 
 func _matar_dialogo() -> void :
@@ -91,9 +114,11 @@ func _carregar_dialogo() -> void:
 	match _informacoes_dialogo_atual["tipo"]:
 		"mensagem":
 			_dialogo.text = _informacoes_dialogo_atual["texto"]
+			_dialogo.visible_ratio = 0.0
 			_container_questao.hide()
 			_dialogo.show()
 		"questao":
+			$TexturaFundo/Confirmar.hide()
 			_dialogo.hide()
 			_container_questao.show()
 			_dialogo_questao.text = _informacoes_dialogo_atual["texto"]

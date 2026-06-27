@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://127c4j6uxrlg" path="res://assets/actors/character/flam/faceset.png" id="2_l7ueq"]
 [ext_resource type="Texture2D" uid="uid://dwjmu3lgwnd53" path="res://assets/ui/dialog/choice_box.png" id="4_kydci"]
 [ext_resource type="FontFile" uid="uid://ru542oicrp0u" path="res://assets/ui/font/Kurland.ttf" id="4_txoaw"]
+[ext_resource type="Texture2D" uid="uid://clgnho34kxxg0" path="res://assets/ui/input/keyboard/keyenter.png" id="6_ueli0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_txoaw"]
 font = ExtResource("4_txoaw")
@@ -170,3 +171,19 @@ text = "Arqueiro"
 label_settings = SubResource("LabelSettings_l7ueq")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Confirmar" type="TextureRect" parent="TexturaFundo" unique_id=563157598]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -15.0
+offset_right = 3.0
+offset_bottom = 2.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("6_ueli0")
